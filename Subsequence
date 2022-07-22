@@ -7,9 +7,9 @@ public class Main
         }
         char currChar = str.charAt(idx);
         
-        
+        //To be
         subsequence(str, idx+1, newString+currChar);
-        
+        //To not be
         subsequence(str, idx+1, newString);
         
     }
