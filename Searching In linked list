@@ -1,0 +1,28 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner sc = new Scanner(System.in);
+	  int i;
+		LinkedList<Integer> list = new LinkedList<>();
+		list.add(1);
+		list.add(5);
+		list.add(7);
+		list.add(3);
+		list.add(8);
+		list.add(2);
+		list.add(3);
+		System.out.println(list);
+		int search = sc.nextInt();
+		for(i=0; i<list.size(); i++){
+		    if(search == list.get(i)){
+		        System.out.println("element found at index: "+i);
+		        break;
+		    }
+		}
+		if(i == list.size()){
+		    System.out.println("Element not found in the list");
+		}
+		
+	}
+}
