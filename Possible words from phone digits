@@ -1,0 +1,25 @@
+class Solution
+{
+    //Function to find list of all words possible by pressing given numbers.
+    static void combination(int[] a, String[] words, ArrayList<String> list, int digit, String str)
+    {
+        if(digit == a.length){
+            list.add(str);
+            return;
+        }
+        
+        String keyword = words[a[digit]];
+        for(int i=0; i<keyword.length(); i++){
+            combination(a, words, list, digit+1, str + keyword.charAt(i));
+        }
+    }
+    
+    static ArrayList <String> possibleWords(int a[], int N)
+    {
+        // your code here 
+        String words[] = {"0", "0", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        ArrayList<String> list =  new ArrayList<>();
+        combination(a, words, list, 0, "");
+        return list;
+    }
+}
