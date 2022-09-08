@@ -1,0 +1,44 @@
+class Solution{
+    static boolean isSafe(int arr[][], int i, int j){
+        int ni=i-1,nj=j;
+        while(ni>=0) if(arr[ni--][j]==1) return false;
+        ni=i;
+        nj=j;
+        while(ni>=0 && nj>=0) if(arr[ni--][nj--]==1) return false;
+        ni=i;
+        nj=j;
+        while(ni>=0 && nj<arr.length) if(arr[ni--][nj++]==1) return false;
+        return true;
+    }
+    static void solve(int arr[][], int i, ArrayList<ArrayList<Integer>> list)
+{
+    if(i==arr.length){
+        ArrayList<Integer> temp = new ArrayList<>();
+        for(int ni=0; ni<arr.length; ni++){
+            for(int nj=0; nj<arr.length; nj++){
+                if(arr[ni][nj]==1){
+                    temp.add(nj+1);
+                    break;
+                }
+            }
+        }
+        list.add(temp);
+        return;
+    }
+    for(int j=0; j<arr.length; j++){
+        if(isSafe(arr,i,j)){
+            arr[i][j] = 1;
+            solve(arr, i+1, list);
+            arr[i][j] = 0;
+        }
+    }
+}
+
+    static ArrayList<ArrayList<Integer>> nQueen(int n) {
+        // code here
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>();
+        int board[][] = new int[n][n];
+        solve(board, 0, list);
+        return list;
+    }
+}
