@@ -1,0 +1,27 @@
+class Solution {
+    static void path(int[][] m,int i,int j,boolean[][] vis,ArrayList<String> ans,String psf){
+        if(i < 0 || j < 0 || i >=m.length || j>=m[0].length   	|| vis[i][j]==true || m[i][j]==0) 
+        return ;
+            
+        if(i==m.length-1 && j==m.length-1){
+            ans.add(psf);
+        }
+        
+        vis[i][j]=true;
+       
+        path(m,i-1,j,vis,ans,psf+"U");//UP
+        path(m,i+1,j,vis,ans,psf+"D");//Down
+        path(m,i,j-1,vis,ans,psf+"L");//Left   
+        path(m,i,j+1,vis,ans,psf+"R");//Right
+        
+        vis[i][j]=false;
+      
+    }
+    public static ArrayList<String> findPath(int[][] m, int n) {
+        // Your code here
+        ArrayList<String> ans = new ArrayList<>();
+        boolean[][] vis = new boolean[n][n];
+        path(m,0,0,vis,ans,"");
+        return ans;
+    }
+}
