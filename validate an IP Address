@@ -1,0 +1,13 @@
+class Solution {
+
+    public boolean isValid(String s) {
+        // Write your code here
+        if(s == null)
+        {
+            return false;
+        }
+        String temp = "^((0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)\\.){3}(0|1\\d?\\d?|2[0-4]?\\d?|25[0-5]?|[3-9]\\d?)$";
+        java.util.regex.Pattern p = java.util.regex.Pattern.compile(temp);
+        return p.matcher(s).matches();
+    }
+}
