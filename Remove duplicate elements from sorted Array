@@ -1,0 +1,11 @@
+class solution{
+   public int duplicate(int[] a, int n){
+   int index=1;
+   for(int i=1; i<N; i++){
+   if(a[i]!=a[i-1]){
+   a[index++]=a[i];
+   }
+   }
+   return index;
+   }}
+   
