@@ -1,0 +1,20 @@
+class Solution { 
+    int minSubset(int[] Arr,int N) { 
+        Arrays.sort(Arr);
+        long sum = 0;
+        for(int i=0; i<N; i++)
+        {
+            sum += Arr[i];
+        }
+        long current=0;
+        int temp=0;
+        for(int j=N-1; j>=0; j--)
+        {
+            current += Arr[j];
+            if(current>(sum-current))
+            break;
+            temp++;
+        }
+        return temp+1;   
+    }
+}
